@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1e293b #0f172a;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #1e293b;
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #334155;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input, select, textarea {
+    @apply bg-slate-800 border border-slate-700 text-slate-100 rounded-xl;
+  }
+
+  input::placeholder, textarea::placeholder {
+    @apply text-slate-500;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    @apply outline-none ring-2 ring-blue-500/40 border-blue-500/50;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900/60 rounded-2xl border border-slate-800 shadow-lg;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-slate-700 hover:shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 
+           text-white font-medium rounded-xl px-4 py-2 
+           transition-all duration-200 shadow-lg shadow-blue-500/20
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-xl px-4 py-2 
+           border border-slate-700 hover:border-slate-600
+           transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 
+           font-medium rounded-xl px-4 py-2 
+           transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-800 border border-slate-700 text-slate-100 rounded-xl px-3 py-2 
+           focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/50 
+           transition-all duration-200 placeholder-slate-500;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .animate-count {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
